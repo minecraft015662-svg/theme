@@ -1,0 +1,107 @@
+/* Sarthak34 theme (Midnight Aurora)
+   Palette: Ink #0d1020 | Slate #151a33 | Edge #2a3160 | Violet #8f7bff | Rose #ff7eb6 */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --ma-ink: #0d1020;
+  --ma-slate: #151a33;
+  --ma-slate-2: #1b2142;
+  --ma-edge: rgba(143, 123, 255, .18);
+  --ma-violet: #8f7bff;
+  --ma-rose: #ff7eb6;
+  --ma-text: #e8eaff;
+  --ma-muted: #9aa1c9;
+}
+
+html, body {
+  font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif !important;
+  color: var(--ma-text);
+}
+
+body {
+  background-color: var(--ma-ink) !important;
+  background-image:
+    radial-gradient(900px 520px at 8% -8%, rgba(143, 123, 255, .22), transparent 60%),
+    radial-gradient(700px 480px at 100% 0%, rgba(255, 126, 182, .12), transparent 55%);
+  background-attachment: fixed;
+}
+
+::selection { background: rgba(143, 123, 255, .45); color: #fff; }
+
+/* scrollbar */
+* { scrollbar-width: thin; scrollbar-color: #2a3160 transparent; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #2a3160; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ma-violet); }
+
+/* top navigation: frosted glass - the one loud element */
+#NavigationBar {
+  background: rgba(21, 26, 51, .62) !important;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid var(--ma-edge);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .35);
+}
+#NavigationBar a:hover, #NavigationBar a.active {
+  color: #fff !important;
+  box-shadow: inset 0 -2px 0 var(--ma-violet) !important;
+}
+
+/* sub navigation on server pages */
+#SubNavigation, [class*="SubNavigation"] {
+  background: rgba(21, 26, 51, .55) !important;
+  border-bottom: 1px solid var(--ma-edge) !important;
+}
+
+/* cards / boxes: styled-components names contain the component name */
+[class*="GreyRowBox"], [class*="TitledGreyBox"], [class*="ServerRow"], [class*="ContentBox"] {
+  background: rgba(27, 33, 66, .72) !important;
+  border: 1px solid var(--ma-edge) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .28);
+}
+[class*="GreyRowBox"]:hover { border-color: rgba(143, 123, 255, .55) !important; }
+
+/* inputs */
+input, textarea, select {
+  background: #10142a !important;
+  border: 1px solid #2a3160 !important;
+  color: var(--ma-text) !important;
+  border-radius: 8px !important;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--ma-violet) !important;
+  box-shadow: 0 0 0 3px rgba(143, 123, 255, .25) !important;
+  outline: none !important;
+}
+::placeholder { color: #6a719e !important; }
+
+/* buttons */
+button[type="submit"], [class*="Button___Styled"] {
+  border-radius: 8px !important;
+  transition: filter .15s ease, box-shadow .15s ease;
+}
+button[type="submit"]:hover { filter: brightness(1.1); box-shadow: 0 6px 20px rgba(143, 123, 255, .35); }
+
+/* console + file editor use a mono face */
+.xterm, .xterm * , .cm-editor, .CodeMirror, code, pre, kbd {
+  font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace !important;
+}
+.xterm-viewport { background-color: #090b18 !important; }
+[class*="Terminal"] { border-radius: 12px; border: 1px solid var(--ma-edge); }
+
+/* tables */
+table { border-collapse: separate; border-spacing: 0; }
+tr:hover td { background: rgba(143, 123, 255, .06); }
+
+/* login / auth pages */
+form[class*="LoginFormContainer"], [class*="LoginFormContainer"] {
+  background: rgba(21, 26, 51, .7) !important;
+  border: 1px solid var(--ma-edge) !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(16px);
+}
+
+a:focus-visible, button:focus-visible { outline: 2px solid var(--ma-rose); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
